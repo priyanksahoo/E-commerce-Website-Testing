@@ -1,0 +1,11 @@
+TC ID,Module,Test Scenario,Pre-condition,Steps,Test Data,Expected Result,Priority,Status
+TC_LOGIN_01,Login,Login with valid credentials,User is registered,"1. Navigate to login page 2. Enter valid email 3. Enter valid password 4. Click Login",email=test@site.com pwd=Valid@123,User is redirected to homepage and logged in,High,Pass
+TC_LOGIN_02,Login,Login with invalid password,User is registered,"1. Enter valid email 2. Enter incorrect password 3. Click Login",email=test@site.com pwd=Wrong@123,Error message 'Invalid credentials' is displayed,High,Pass
+TC_LOGIN_03,Login,Login with unregistered email,None,"1. Enter unregistered email 2. Enter any password 3. Click Login",email=notfound@site.com,Error message 'Account not found' is displayed,High,Pass
+TC_LOGIN_04,Login,Login with empty email field,None,"1. Leave email blank 2. Enter password 3. Click Login",email=(blank),Validation error 'Email is required' is shown,Medium,Pass
+TC_LOGIN_05,Login,Login with empty password field,None,"1. Enter email 2. Leave password blank 3. Click Login",pwd=(blank),Validation error 'Password is required' is shown,Medium,Pass
+TC_LOGIN_06,Login,Login with both fields empty,None,"1. Leave both fields blank 2. Click Login",N/A,Both validation errors shown simultaneously,Medium,Pass
+TC_LOGIN_07,Login,Password field masks input,None,"1. Enter password 2. Observe field",pwd=Test@123,Characters are masked as dots/asterisks,Low,Pass
+TC_LOGIN_08,Login,Session persists after refresh,User logged in,"1. Login successfully 2. Refresh page",N/A,User remains logged in,Medium,Pass
+TC_LOGIN_09,Login,SQL injection attempt in email field,None,"1. Enter SQL injection string in email 2. Click Login","email=' OR '1'='1","Login rejected safely with generic error, no DB error exposed",High,Pass
+TC_LOGIN_10,Login,Account lockout after multiple failed attempts,None,"1. Attempt login with wrong password 5 times",pwd=Wrong@123 (x5),Account temporarily locked with warning message,High,Fail
