@@ -1,0 +1,11 @@
+TC ID,Module,Test Scenario,Pre-condition,Steps,Test Data,Expected Result,Priority,Status
+TC_CART_01,Cart,Add single item to cart,Product page open,"1. Click 'Add to Cart'",N/A,Item appears in cart with quantity 1,High,Pass
+TC_CART_02,Cart,Add same item twice,Item already in cart,"1. Click 'Add to Cart' again",N/A,"Quantity increments to 2, not duplicated as new line",High,Pass
+TC_CART_03,Cart,Remove item from cart,Item in cart,"1. Click remove/delete icon",N/A,"Item removed, cart total updates",High,Pass
+TC_CART_04,Cart,Increase quantity via stepper,Item in cart,"1. Click '+' button 3 times",N/A,"Quantity = 4, subtotal recalculated correctly",High,Pass
+TC_CART_05,Cart,Decrease quantity to 0,Item in cart with qty 1,"1. Click '-' button",N/A,Item should auto-remove from cart,Medium,Fail
+TC_CART_06,Cart,Cart total recalculates correctly,Multiple items in cart,"1. Verify sum of (price x qty) for all items",N/A,Displayed total matches manual calculation,High,Pass
+TC_CART_07,Cart,Add out-of-stock item,Product marked out of stock,"1. Attempt 'Add to Cart'",N/A,'Add to Cart' disabled or error shown,High,Pass
+TC_CART_08,Cart,Cart persists after page refresh,Items in cart,"1. Refresh page",N/A,Cart contents remain unchanged,Medium,Pass
+TC_CART_09,Cart,Apply valid coupon code,Items in cart,"1. Enter coupon code 2. Click Apply",code=SAVE10,Discount applied and total reduced correctly,Medium,Pass
+TC_CART_10,Cart,Apply invalid coupon code,Items in cart,"1. Enter invalid coupon 2. Click Apply",code=INVALID99,"Error message shown, total unchanged",Medium,Pass
