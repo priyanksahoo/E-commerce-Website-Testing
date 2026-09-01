@@ -1,0 +1,11 @@
+TC ID,Module,Test Scenario,Pre-condition,Steps,Test Data,Expected Result,Priority,Status
+TC_CHECKOUT_01,Checkout,Complete checkout with valid address & payment,Items in cart,"1. Proceed to checkout 2. Enter valid address 3. Select payment method 4. Confirm order",N/A,"Order placed, confirmation page shown with order ID",High,Pass
+TC_CHECKOUT_02,Checkout,Checkout with missing address fields,Items in cart,"1. Leave city field blank 2. Attempt to proceed",N/A,"Validation error, checkout blocked",High,Pass
+TC_CHECKOUT_03,Checkout,Checkout with invalid pincode format,Items in cart,"1. Enter alphabetic pincode 2. Attempt to proceed",pincode=ABCDE,Validation error shown,Medium,Pass
+TC_CHECKOUT_04,Checkout,Select Cash on Delivery,Items in cart,"1. Select COD as payment 2. Confirm order",N/A,Order placed successfully without payment gateway,High,Pass
+TC_CHECKOUT_05,Checkout,Payment failure handling,Items in cart,"1. Select card payment 2. Use test-fail card number",card=4000000000000002,"Payment failure message shown, order not created",High,Pass
+TC_CHECKOUT_06,Checkout,Order summary matches cart before payment,Items in cart,"1. Reach order review step 2. Compare items/total with cart",N/A,Items and total match exactly,High,Pass
+TC_CHECKOUT_07,Checkout,Back navigation preserves cart data,Mid-checkout,"1. Click browser back 2. Return to checkout",N/A,Cart and entered data are not lost,Medium,Fail
+TC_CHECKOUT_08,Checkout,Order confirmation email/notification triggered,Order placed,"1. Complete order",N/A,Confirmation notification is generated,Medium,Pass
+TC_CHECKOUT_09,Checkout,Cannot checkout with empty cart,Cart is empty,"1. Navigate directly to checkout URL",N/A,Redirected to cart/homepage with message,Medium,Pass
+TC_CHECKOUT_10,Checkout,Apply saved address at checkout,Returning user with saved address,"1. Select saved address from list",N/A,Address auto-fills correctly,Low,Pass
