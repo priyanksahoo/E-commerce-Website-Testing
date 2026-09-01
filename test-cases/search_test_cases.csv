@@ -1,0 +1,11 @@
+TC ID,Module,Test Scenario,Pre-condition,Steps,Test Data,Expected Result,Priority,Status
+TC_SEARCH_01,Search,Search with valid product name,None,"1. Enter product name in search bar 2. Press Enter",query=running shoes,Relevant products displayed,High,Pass
+TC_SEARCH_02,Search,Search with partial keyword,None,"1. Enter partial product name",query=runn,Autosuggest/matching results displayed,Medium,Pass
+TC_SEARCH_03,Search,Search with special characters,None,"1. Enter special characters",query=@@##$$,"No results / graceful empty state, no crash",Medium,Pass
+TC_SEARCH_04,Search,Search with leading/trailing spaces,None,"1. Enter query with spaces",query='  shoes  ',Results same as trimmed query,Low,Fail
+TC_SEARCH_05,Search,Search with no matching results,None,"1. Enter nonexistent product",query=zzznotaproduct,'No results found' message displayed,Medium,Pass
+TC_SEARCH_06,Search,Apply price filter,Search results loaded,"1. Search product 2. Apply price range filter",range=500-1000,Only products within range displayed,High,Pass
+TC_SEARCH_07,Search,Apply sort by price low-high,Search results loaded,"1. Search product 2. Sort by price ascending",N/A,Results ordered ascending by price,Medium,Pass
+TC_SEARCH_08,Search,Apply multiple filters together,Search results loaded,"1. Apply brand filter 2. Apply price filter",brand=Nike range=1000-2000,Results match both filters (AND logic),High,Pass
+TC_SEARCH_09,Search,Search bar accepts empty submit,None,"1. Leave search bar empty 2. Press Enter",N/A,Either shows all products or prompts to enter a term,Low,Pass
+TC_SEARCH_10,Search,Case-insensitive search,None,"1. Enter query in uppercase",query=SHOES,Same results as lowercase query,Medium,Pass
